@@ -1,3 +1,3 @@
 {
-    "database-url": "mongodb+srv://1221638:1221638@cluster0.nimwm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    "database-url": "<database-url>"
 }
