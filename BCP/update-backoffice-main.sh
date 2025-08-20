@@ -1,4 +1,3 @@
-# access token " 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 " for user 1221638
 # store credential " git config --global credential.helper store "
 # persist username " git config --global user.name '1221638' " 
 
