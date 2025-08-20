@@ -1,0 +1,40 @@
+<!-- <p>operation-type-details works!</p> -->
+<!-- <p>type-details works! {{typeId}}</p> -->
+<!-- <p>type-details works! {{type?.id}}</p> -->
+
+<body>
+    <h2>Operation Type Details</h2>
+
+    <p>
+        <strong>Designation:</strong> {{ type.name }}
+    </p>
+
+    <div class="detail">
+        <p><strong>Required Staff:</strong></p>
+        <div *ngFor="let e of type.requiredStaff">
+            {{ e.specialization }} {{e.role}}: {{ e.quantity }}
+        </div>
+    </div>
+
+    <p>
+        <strong>Estimated Duration:</strong> {{ type.estimatedDuration }} min.
+    </p>
+
+    <p>
+        <strong>Status:</strong> {{ type.status }}
+    <p>
+
+    <p>
+        <button *ngIf="type.status === 'Active'" mat-raised-button (click)="edit()">
+            Edit
+            <mat-icon>edit</mat-icon>
+        </button>
+    </p>
+
+    <p>
+        <button *ngIf="type.status === 'Active'" mat-raised-button (click)="deactivate()">
+            Deactivate
+            <mat-icon>power_settings_new</mat-icon>
+        </button>
+    </p>
+</body>

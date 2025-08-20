@@ -1,0 +1,47 @@
+<!-- <p>request-details works! {{requestId}}</p> -->
+<!-- <p>request-details works! {{request?.id}}</p> -->
+
+<body>
+    <div *ngIf="request">
+        <h2>Request Details</h2>
+
+        <p>
+            <strong>Patient Medical Record Number:</strong> {{ request.patientId }}
+        </p>
+
+        <p>
+            <strong>Patient Name:</strong> {{ request.patientName }}
+        </p>
+
+        <p>
+            <strong>Operation Type Name:</strong> {{ request.operationTypeName }}
+        </p>
+
+        <p>
+            <strong>Priority:</strong> {{ request.priority }}
+        </p>
+
+        <p>
+            <strong>Deadline:</strong> {{ request.deadline | date }}
+        </p>
+
+        <p>
+            <strong>Status:</strong> {{ request.status }}
+        </p>
+
+        <p>
+            <button mat-raised-button (click)="editRequest()">
+                Edit
+                <mat-icon>edit</mat-icon>
+            </button>
+        </p>
+
+        <p>
+            <button mat-raised-button (click)="deleteRequest()">
+                Delete
+                <mat-icon>delete</mat-icon>
+            </button>
+        </p>
+    </div>
+    
+</body>

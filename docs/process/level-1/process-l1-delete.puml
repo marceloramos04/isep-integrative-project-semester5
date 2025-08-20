@@ -1,0 +1,30 @@
+@startuml
+
+
+actor actor
+participant "System" as system
+
+activate actor
+actor -> system: request items
+
+activate system
+system --> actor: list items
+deactivate
+
+actor -> system:selects item
+
+activate system 
+system --> actor: request confirmation
+deactivate
+
+alt if actor confirms
+
+actor -> system:confirm delete
+
+activate system
+system --> actor: item deleted
+deactivate
+
+end
+
+@enduml

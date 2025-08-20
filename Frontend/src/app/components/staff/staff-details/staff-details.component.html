@@ -1,0 +1,53 @@
+<!-- <p>request-details works! {{requestId}}</p> -->
+<!-- <p>request-details works! {{request?.id}}</p> -->
+
+<body>
+    <div *ngIf="staff">
+
+        <h2>Staff Details</h2>
+
+        <div> <strong>Name:</strong> {{ staff.firstName }} </div>
+        <div> <strong>Surname:</strong> {{ staff.lastName }} </div>
+
+        <p>
+            <strong>License Number:</strong> {{ staff.licenseNumber }}
+        </p>
+
+        <div>
+            <strong>Email:</strong> {{ staff.email }}
+        </div>
+
+        <div>
+            <strong>Phone Number:</strong> {{ staff.phoneNumber }}
+        </div>
+
+        <p>
+            <strong>Specialization:</strong> {{ staff.specialization }}
+        </p>
+
+        <p>
+            <strong>Availabitily Slots:</strong>
+        </p>
+
+        <p>
+            @for (s of staff.availabilitySlots; track s) {
+            <strong>Start:</strong> {{s.start}} <strong>End:</strong> {{s.start}}
+            }
+        </p>
+
+        <p>
+            <button mat-raised-button (click)="editStaff()">
+                Edit
+                <mat-icon>edit</mat-icon>
+            </button>
+        </p>
+
+        <p>
+            <button mat-raised-button (click)="deleteStaff()">
+                Delete
+                <mat-icon>delete</mat-icon>
+            </button>
+        </p>
+    </div>
+
+</body>

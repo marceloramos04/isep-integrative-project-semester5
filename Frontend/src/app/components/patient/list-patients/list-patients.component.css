@@ -1,0 +1,22 @@
+body {
+    padding: 2%;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 25%;
+}
+
+.highlight-rows tr:hover {
+    background-color: #f5f5f5;
+    /* Change this color to your preferred highlight color */
+}

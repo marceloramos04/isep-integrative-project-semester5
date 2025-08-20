@@ -1,0 +1,48 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "include": [
+    "src"
+, "cypress/e2e/patient/patient-details-by-doctor.component.cy.ts"  ],
+  "exclude": [
+    "cypress",
+  ],
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "Preserve",
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "three/examples/jsm/*": [
+        "node_modules/three/examples/jsm/*"
+      ]
+    },
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

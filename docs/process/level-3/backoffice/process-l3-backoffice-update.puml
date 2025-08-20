@@ -1,0 +1,63 @@
+@startuml 
+
+
+participant "Controller" as ctrl
+participant "Service" as serv
+participant "Repository" as repo 
+
+->ctrl: get_items()
+
+activate ctrl
+ctrl -> serv: get_items()
+
+activate serv 
+serv -> repo: get_items()
+
+activate repo 
+repo --> serv: list_items 
+deactivate 
+
+serv --> ctrl: list_items
+deactivate 
+
+<-- ctrl: list_items
+deactivate
+
+ -> ctrl: get(item)
+
+activate ctrl
+ctrl -> serv: get(item)
+
+activate serv
+serv -> repo: get(item)
+
+activate repo 
+repo --> serv: item 
+deactivate 
+
+serv --> ctrl: item 
+deactivate 
+
+<-- ctrl: item
+deactivate 
+
+ -> ctrl: update_item(new_data)
+
+activate ctrl
+ctrl -> serv: update_item(new_data)
+
+activate serv 
+serv -> repo: update_item(new_data)
+
+activate repo 
+repo --> serv: updated_item 
+deactivate 
+
+serv --> ctrl: updated_item
+deactivate 
+
+<-- ctrl: updated_item
+deactivate 
+
+
+@enduml

@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Deactivate Staff</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Are you sure you want to deactivate this staff member with 
+        <strong>ID:</strong> {{ staffId }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="deactivateStaff()">Yes, Deactivate</button>
+      <button mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+  

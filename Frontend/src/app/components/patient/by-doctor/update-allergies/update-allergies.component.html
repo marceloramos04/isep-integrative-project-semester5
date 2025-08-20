@@ -1,0 +1,69 @@
+<body>
+    <form [formGroup]="filterForm" (ngSubmit)="search()">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Code</mat-label>
+            <input matInput formControlName="code">
+            <button mat-icon-button matSuffix *ngIf="filterForm.get('code')?.value" (click)="clearField('code')">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+            <button mat-icon-button matSuffix *ngIf="filterForm.get('name')?.value" (click)="clearField('name')">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description">
+            <button mat-icon-button matSuffix *ngIf="filterForm.get('description')?.value"
+                (click)="clearField('description')">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <!-- Botão de Busca -->
+        <button mat-raised-button color="primary" type="submit">Search</button>
+    </form>
+    
+    <!-- Tabela de Resultados -->
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort class="highlight-rows">
+            <!-- Coluna: code -->
+            <ng-container matColumnDef="code">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Code </th>
+                <td mat-cell *matCellDef="let row"> {{ row.code }} </td>
+            </ng-container>
+
+            <!-- Coluna: name -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let row"> {{ row.name }} </td>
+            </ng-container>
+
+            <!-- Coluna: description -->
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+                <td mat-cell *matCellDef="let row"> {{ row.description }} </td>
+            </ng-container>
+
+
+            <!-- Cabeçalho e Linhas -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row (click)="onRowClicked(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Mensagem: Sem Dados -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter</td>
+            </tr>
+        </table>
+
+
+        <!-- Paginação -->
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</body>

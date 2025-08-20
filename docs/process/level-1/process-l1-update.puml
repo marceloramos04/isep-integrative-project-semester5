@@ -1,0 +1,26 @@
+@startuml 
+
+actor actor
+participant "System" as system
+
+activate actor
+actor -> system: requests items
+
+activate system
+system --> actor: list of items
+deactivate
+
+actor -> system:selects item
+
+activate system
+system --> actor:item
+deactivate
+
+actor -> system: updates info
+
+activate system 
+system --> actor: updated item
+deactivate
+
+
+@enduml

@@ -1,0 +1,216 @@
+@startuml 
+hide methods
+hide circle
+
+left to right direction
+
+skinparam classAttributeIconSize 0
+
+
+
+
+
+
+
+
+
+package UserAggregate {
+class "User" as User <<Root Entity>> {
+
+}
+
+class "Password" as Password <<Value Object>>
+class "Username" as Username <<Value Object>>
+class "Email" as Email <<Value Object>>
+class "Role" as Role <<Value Object>>
+class "UserID" as UserID <<Value Object>>
+}
+
+User --- UserID
+User --- Username
+User --- Email
+User --- Role
+User --- Password
+
+
+
+
+
+
+
+
+
+package PatientAggregate {
+class "Patient" as Patient <<Root Entity>> {
+
+}
+
+class "MedicalRecordNumber" as MedicalRecordNumber <<Value Object>>
+class "PhoneNumber" as PatientPhoneNumber <<Value Object>>
+class "Email" as PatientEmail <<Value Object>>
+class "MedicalCondition" as MedicalCondition <<Value Object>>
+class "EmergencyContact" as EmergencyContact <<Value Object>>
+class "AppointmentHistory" as AppointmentHistory <<Value Object>>
+class "DateOfBirth" as DateOfBirth <<Value Object>>
+class "Gender" as Gender <<Value Object>>
+class "FullName" as PatientFullName <<Value Object>>
+class "LastName" as PatientLastName <<Value Object>>
+class "FirstName" as PatientFirstName <<Value Object>>
+class "PatientID" as PatientID <<Value Object>>
+
+}
+
+Patient --- UserID
+Patient --- PatientID
+Patient --- PatientFirstName
+Patient --- PatientLastName
+Patient --- PatientFullName
+Patient --- PatientEmail
+Patient --- DateOfBirth
+Patient --- Gender
+Patient --- MedicalRecordNumber
+Patient --- PatientPhoneNumber
+Patient --- MedicalCondition
+Patient --- EmergencyContact
+Patient --- AppointmentHistory
+
+
+
+
+
+
+
+package StaffAgregate {
+
+class "Staff" as Staff <<Root Entity>> {}
+
+class "AvailabilitySlots" as AvailabilitySlots <<Value Object>>
+class "PhoneNumber" as StaffPhoneNumber <<Value Object>>
+class "Email" as StaffEmail <<Value Object>>
+class "Specialization" as Specialization <<Value Object>>
+class "LicenseNumber" as LicenseNumber <<Value Object>>
+class "FullName" as StaffFullName <<Value Object>>
+class "LastName" as StaffLastName <<Value Object>>
+class "FirstName" as StaffFirstName <<Value Object>>
+class "StaffID" as StaffID <<Value Object>>
+
+}
+
+Staff --- UserID
+Staff --- StaffID
+Staff --- StaffFirstName
+Staff --- StaffLastName
+Staff --- StaffFullName
+Staff --- LicenseNumber
+Staff --- Specialization
+Staff --- StaffEmail
+Staff --- StaffPhoneNumber
+Staff --- AvailabilitySlots
+
+
+
+
+
+
+
+
+package OperationTypeEntity {
+
+class "OperationType" as OperationType <<Entity>> {}
+
+class "OperationTypeID" as OperationTypeID <<Value Object>>
+class "OperationTypeName" as OperationTypeName <<Value Object>>
+class "RequiredStaff" as RequiredStaff <<Value Object>>
+class "EstimatedDuration" as EstimatedDuration <<Value Object>>
+
+}
+
+OperationType --- OperationTypeID
+OperationType --- OperationTypeName
+OperationType --- RequiredStaff
+OperationType --- EstimatedDuration
+
+
+
+
+
+
+
+
+package OperationRequestAggregate {
+
+class "OperationRequest" as OperationRequest <<Root Entity>> {}
+
+class "OperationPriority" as OperationPriority <<Value Object>>
+class "OperationDeadline" as OperationDeadline <<Value Object>>
+class "OperationRequestID" as OperationRequestID <<Value Object>>
+
+}
+
+OperationRequest --- OperationRequestID
+OperationRequest --- PatientID
+OperationRequest --- StaffID: a request is \n associated to a doctor
+OperationRequest --- OperationPriority
+OperationRequest --- OperationDeadline
+OperationRequest --- OperationTypeID
+
+
+
+
+
+
+
+
+
+
+package SurgeryRoomAggregate {
+
+class "SurgeryRoom" as SurgeryRoom <<Root Entity>> {
+
+}
+
+class "Equipment" as Equipment <<Value Object>>
+class "SurgeryRoomAssignedEquipment" as SurgeryRoomAssignedEquipment <<Value Object>>
+class "SurgeryRoomStatus" as SurgeryRoomStatus <<Value Object>>
+class "SurgeryRoomCapacity" as SurgeryRoomCapacity <<Value Object>>
+class "SurgeryRoomType" as SurgeryRoomType <<Value Object>>
+class "SurgeryRoomNumber" as SurgeryRoomNumber <<Value Object>>
+class "SurgeryRoomID" as SurgeryRoomID <<Value Object>>
+
+}
+
+SurgeryRoom --- SurgeryRoomID
+SurgeryRoom --- SurgeryRoomNumber
+SurgeryRoom --- SurgeryRoomType
+SurgeryRoom --- SurgeryRoomCapacity
+SurgeryRoom --- SurgeryRoomStatus
+SurgeryRoom --- SurgeryRoomAssignedEquipment
+SurgeryRoomAssignedEquipment ---"1..*" Equipment
+
+
+
+
+
+
+
+
+package AppointmentAggregate {
+
+class "Appointment" as Appointment <<Root Entity>> {
+
+}
+
+class "AppointmentStatus" as AppointmentStatus <<Value Object>>
+class "OperationTimestamp" as OperationTimestamp <<Value Object>>
+class "AppointmentID" as AppointmentID <<Value Object>>
+
+}
+
+Appointment --- AppointmentID
+Appointment --- OperationRequestID
+Appointment --- OperationTimestamp
+Appointment --- AppointmentStatus
+Appointment --- SurgeryRoomID
+
+
+@enduml

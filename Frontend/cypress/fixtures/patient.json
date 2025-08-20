@@ -1,0 +1,12 @@
+{
+  "medicalRecordNumber": "202501000001",
+  "firstName": "Marie",
+  "lastName": "Doe",
+  "phoneNumber": "2222222",
+  "email": "jane@test.com",
+  "emergencyContact": "0000000",
+  "medicalConditions": [],
+  "appointmentHistory": [],
+  "dateOfBirth": "1990-01-01",
+  "gender": "female"
+}

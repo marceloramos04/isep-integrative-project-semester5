@@ -1,0 +1,4 @@
+ {
+    "backoffice-url": "https://vs-gate.dei.isep.ipp.pt:10330/api",
+    "backoffice-medical-records-url": "https://vs-gate.dei.isep.ipp.pt:30330"
+}

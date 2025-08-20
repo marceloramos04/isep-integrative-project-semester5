@@ -1,0 +1,21 @@
+@startuml
+
+
+actor actor
+participant "System" as system
+
+activate actor
+actor -> system: request to create item
+
+activate system
+system --> actor: asks for data
+deactivate
+
+actor -> system:enters data
+
+activate system
+system --> actor:new item
+deactivate
+
+
+@enduml

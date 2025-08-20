@@ -1,0 +1,15 @@
+@startuml
+
+
+actor actor
+participant "System" as system
+
+activate actor
+actor -> system: list/search request
+
+activate system
+system --> actor: list
+deactivate
+
+
+@enduml

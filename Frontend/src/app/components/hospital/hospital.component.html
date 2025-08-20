@@ -1,0 +1,14 @@
+<div style="position: relative;">
+    <button *ngIf="tablePicked" (click)="unselectTable()" style="position: absolute; top: 10px; left: 10px; z-index: 10;">Return</button>
+    <canvas #myCanvas id="myCanvas" style="width: 100%;"></canvas>
+    <div *ngIf="tablePicked && displayInfo" style="position: absolute; bottom: 10px; left: 10px; z-index: 10; background-color: white; padding: 5px;">
+        <p>Room ID: {{tablePicked.room.id}}</p>
+        <p>Condition: {{tablePicked.room.condition}}</p>
+        @if (tablePicked.room.condition == 'In surgery') {
+            <p>Patient ID: {{tablePicked.room.patient_number}}</p>
+            <p>Patient Name: {{tablePicked.room.patient_name}}</p>
+            <p>Surgery Type: {{tablePicked.room.surgery_type}}</p>
+            <p>Time left: {{tablePicked.room.time_left}}mn</p>
+        }
+    </div>
+</div>

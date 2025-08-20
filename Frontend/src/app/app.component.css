@@ -1,0 +1,30 @@
+.brand-logo {
+  width: 250px;
+  /* Adjust the width as needed */
+  height: auto;
+  /* Maintain aspect ratio */
+  /* padding: 1%; */
+}
+
+a {
+  align-items: center;
+}
+
+#banner {
+  display: flex;
+  align-items: center;
+  padding: 1%;
+  background-color: #FFD9E1;
+}
+
+@media (orientation: landscape) {
+  #brand-logo {
+    width: 15%;
+  }
+}
+
+@media (orientation: portrait) {
+  #brand-logo {
+    width: 33%;
+  }
+}

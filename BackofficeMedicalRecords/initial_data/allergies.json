@@ -1,0 +1,87 @@
+[
+    {
+      "name": "Peanut Allergy",
+      "code": "91935009",
+      "description": "Allergy to peanuts. Peanuts are a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Shellfish Allergy (e.g., shrimp, lobster)",
+      "code": "300913006",
+      "description": "Allergy to shellfish (e.g., shrimp, lobster, crab, clams, mussels, oysters, scallops, octopus, squid, and snails). Shellfish are a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Milk Allergy (Dairy products)",
+      "code": "235282007",
+      "description": "Allergy to milk and dairy products. Milk is a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Egg Allergy",
+      "code": "232347008",
+      "description": "Allergy to eggs (e.g., chicken, duck, goose, quail). Eggs are a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Tree Nut Allergy (e.g., almonds, walnuts)",
+      "code": "91934005",
+      "description": "Allergy to tree nuts (e.g., almonds, walnuts, cashews, hazelnuts, macadamia nuts, pecans, pine nuts, pistachios, and Brazil nuts). Tree nuts are a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Wheat Allergy",
+      "code": "420174000",
+      "description": "Allergy to wheat and wheat products. Wheat is a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Penicillin Allergy",
+      "code": "91936005",
+      "description": "Allergy to penicillin antibiotics. Penicillin is a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Aspirin Allergy",
+      "code": "282100009",
+      "description": "Allergy to aspirin (acetylsalicylic acid). Aspirin is a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Local Anesthetics Allergy (e.g., Lidocaine)",
+      "code": "293718005",
+      "description": "Allergy to local anesthetics (e.g., lidocaine, bupivacaine, mepivacaine, prilocaine, ropivacaine, and tetracaine). Local anesthetics are a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Pollen Allergy (e.g., grass, ragweed)",
+      "code": "300910009",
+      "description": "Allergy to pollen (e.g., grass, ragweed, trees, and flowers). Pollen is a common allergen that can cause allergic rhinitis (hay fever) and asthma symptoms."
+    },
+    {
+      "name": "Dust Mite Allergy",
+      "code": "232350008",
+      "description": "Allergy to dust mites (e.g., Dermatophagoides pteronyssinus and Dermatophagoides farinae). Dust mites are a common allergen that can cause allergic rhinitis (hay fever) and asthma symptoms."
+    },
+    {
+      "name": "Mold Allergy",
+      "code": "232353005",
+      "description": "Allergy to mold spores (e.g., Alternaria, Aspergillus, Cladosporium, and Penicillium). Mold is a common allergen that can cause allergic rhinitis (hay fever) and asthma symptoms."
+    },
+    {
+      "name": "Cat Dander Allergy",
+      "code": "232349005",
+      "description": "Allergy to cat dander (skin flakes). Cat dander is a common allergen that can cause allergic rhinitis (hay fever) and asthma symptoms."
+    },
+    {
+      "name": "Dog Dander Allergy",
+      "code": "232348002",
+      "description": "Allergy to dog dander (skin flakes). Dog dander is a common allergen that can cause allergic rhinitis (hay fever) and asthma symptoms."
+    },
+    {
+      "name": "Latex Allergy",
+      "code": "300916003",
+      "description": "Allergy to latex rubber. Latex is a common allergen that can cause a severe allergic reaction (anaphylaxis). Anaphylaxis is a medical emergency that requires immediate treatment."
+    },
+    {
+      "name": "Nickel Allergy (common in jewelry or metal objects)",
+      "code": "419788000",
+      "description": "Allergy to nickel metal. Nickel is a common allergen that can cause allergic contact dermatitis (skin rash)."
+    },
+    {
+      "name": "Perfume Allergy (fragrance sensitivity)",
+      "code": "420134006",
+      "description": "Allergy to perfume and fragrances. Perfume is a common allergen that can cause allergic contact dermatitis (skin rash)."
+    }
+  ]

@@ -1,0 +1,47 @@
+<form [formGroup]="specializationForm" (ngSubmit)="onSubmit()" class="specialization-form">
+    <mat-card class="details-card">
+      <mat-card-title>Add Specialization</mat-card-title>
+      <mat-card-content>
+  
+        <!-- Specialization Code -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Specialization Code</mat-label>
+          <input matInput formControlName="specializationCode" placeholder="Enter specialization code" />
+          <mat-error *ngIf="specializationForm.get('specializationCode')?.hasError('required') && specializationForm.get('specializationCode')?.touched">
+            Specialization Code is required.
+          </mat-error>
+          <mat-error *ngIf="specializationForm.get('specializationCode')?.hasError('pattern') && specializationForm.get('specializationCode')?.touched">
+            Specialization Code must be exactly 15 digits.
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- Designation -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Designation</mat-label>
+          <input matInput formControlName="designation" placeholder="Enter designation" />
+          <mat-error *ngIf="specializationForm.get('designation')?.hasError('required') && specializationForm.get('designation')?.touched">
+            Designation is required.
+          </mat-error>
+          <mat-error *ngIf="specializationForm.get('designation')?.hasError('pattern') && specializationForm.get('designation')?.touched">
+            Designation can only contain letters and spaces.
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- Description -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" placeholder="Enter description"></textarea>
+          <mat-error *ngIf="specializationForm.get('description')?.hasError('maxlength') && specializationForm.get('description')?.touched">
+            Description cannot exceed 200 characters.
+          </mat-error>
+        </mat-form-field>
+  
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="specializationForm.invalid">
+          Submit
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  

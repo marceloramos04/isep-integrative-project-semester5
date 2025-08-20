@@ -1,0 +1,92 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" role="navigation" mode="side" opened="true">
+    <mat-toolbar color="primary">
+      Admin Dashboard
+    </mat-toolbar>
+    <mat-toolbar>
+      <button mat-button color="warn" (click)="logout()">Logout</button>
+    </mat-toolbar>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Staff
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item href="#" [routerLink]="['add-staff']">New</a>
+        <a mat-list-item href="#" [routerLink]="['list-staff']">Manage</a>
+      
+      </mat-nav-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Patients
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item href="#" [routerLink]="['register-patients']">New</a>
+        <a mat-list-item href="#" [routerLink]="['list-patients']">Manage</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Operation Types
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item href="#" [routerLink]="['register-operation-type']">New</a>
+        <a mat-list-item href="#" [routerLink]="['list-operation-types']">Manage</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Specializations
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item href="#" [routerLink]="['add-specializations']">New</a>
+        <a mat-list-item href="#" [routerLink]="['list-specializations']">Manage</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Allergies
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item href="#" [routerLink]="['add-allergies']">New</a>
+
+      </mat-nav-list>
+    </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Room Types
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-nav-list>
+      <a mat-list-item href="#" [routerLink]="['add-room-type']">New</a>
+      <a mat-list-item href="#" [routerLink]="['room-type']">Manage</a>
+
+    </mat-nav-list>
+  </mat-expansion-panel>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<style>
+</style>

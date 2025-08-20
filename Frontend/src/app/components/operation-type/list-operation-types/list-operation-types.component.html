@@ -1,0 +1,82 @@
+<body>
+  <form [formGroup]="filterForm" (ngSubmit)="search()">
+    <mat-form-field id="name-field" appearance="outline" class="full-width">
+      <mat-label>Operation Type Name</mat-label>
+      <input matInput formControlName="name">
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('name')?.value" (click)="clearField('name')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field id="specialization-field" appearance="outline" class="full-width">
+      <mat-label>Specialization</mat-label>
+      <mat-select formControlName="specialization">
+        @for (specialization of specializations; track specialization) {
+        <mat-option [value]="specialization">{{ specialization }}</mat-option>
+        }
+      </mat-select>
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('specialization')?.value"
+        (click)="clearField('specialization')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field id="status-field" appearance="outline" class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        @for (status of statuses; track status) {
+        <mat-option [value]="status">{{ status }}</mat-option>
+        }
+      </mat-select>
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('status')?.value" (click)="clearField('status')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button id="search-button" mat-raised-button color="primary" type="submit">Search</button>
+  </form>
+
+  <div class="mat-elevation-z8">
+    <table id="output-table" mat-table [dataSource]="dataSource" matSort class="highlight-rows">
+
+      <ng-container id="names-column" matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+
+      <ng-container id="required-staff-column" matColumnDef="requiredStaff">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Required Staff </th>
+        <td mat-cell *matCellDef="let row">
+          <div *ngFor="let staff of row.requiredStaff" class="staff-item">
+            <!-- <div class="staff-role">Role: {{ staff.role }}</div>
+              <div class="staff-specialization">Specialization: {{ staff.specialization }}</div>
+              <div class="staff-quantity">Quantity: {{ staff.quantity }}</div> -->
+            {{ staff.specialization }} {{ staff.role }}: {{ staff.quantity }}
+          </div>
+        </td>
+      </ng-container>
+
+
+      <ng-container id="estimated-duration-column" matColumnDef="estimatedDuration">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Estimated Duration (minutes) </th>
+        <td mat-cell *matCellDef="let row"> {{row.estimatedDuration}} </td>
+      </ng-container>
+
+
+      <ng-container id="status-column" matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr id="item-from-list" mat-row (click)="onRowClicked(row)" *matRowDef="let row; columns: displayedColumns;" [attr.data-id]="row.id"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</body>

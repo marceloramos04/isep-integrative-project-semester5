@@ -1,0 +1,52 @@
+<mat-card class="container">
+    <h2>Create Operation Request</h2>
+    <form [formGroup]="operationForm" (ngSubmit)="onSubmit()">
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Patient</mat-label>
+        <mat-select formControlName="patientId">
+          <mat-option *ngFor="let patient of patientList" [value]="patient.medicalRecordNumber">
+            {{ patient.fullName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Doctor ID</mat-label>
+        <input matInput formControlName="doctorId" placeholder="Enter Doctor ID" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Operation Type</mat-label>
+        <mat-select formControlName="operationTypeId">
+          <mat-option *ngFor="let operationType of operationTypeList" [value]="operationType.id">
+            {{ operationType.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="priority">
+          <mat-option *ngFor="let priority of priorities" [value]="priority">
+            {{ priority }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Deadline-->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Deadline</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="deadline" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> 
+  
+      
+      <!-- Submit Button -->
+      <button mat-raised-button color="primary" type="submit" [disabled]="operationForm.invalid">
+        Submit Request
+      </button>
+    </form>
+  </mat-card>
+  

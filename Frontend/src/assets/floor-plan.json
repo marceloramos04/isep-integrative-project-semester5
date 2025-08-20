@@ -1,0 +1,47 @@
+{
+  "directonalLightIntensity": 1,
+  "ambientLightIntensity": 0.1,
+  "lightColor": "#ffffff",
+
+  "groundTextureUrl": "assets/textures/tile-texture.png",
+  "groundTextureRepeatFactor": 1,
+  "groundColor": "#FFF8F8",
+
+  "wallTextureUrl": "assets/textures/texture-wall.jpg",
+  "wallColor": "#FFD9E1",
+
+  "doorFrameTextureUrl": "assets/textures/door-frame-texture.png",
+  "doorFrameColor": "#E8C8A8",
+  "doorFrontTextureUrl": "assets/textures/door-texture2/door-texture2-front.png",
+  "doorRearTextureUrl": "assets/textures/door-texture2/door-texture2-rear.png",
+  "doorColor": "#ffffff",
+
+  "freeTableModelUrl": "assets/models/operating_table3.glb",
+  "freeTableModelScale": 0.2,
+
+  "occupiedTableModelUrl": "assets/models/operating_table3-occupied.glb",
+  "occupiedTableModelScale": 0.2,
+
+  "schema": [
+    [3.0, 2.0, 2.0, 3.0, 2.0, 3.0, 2.0, 2.0, 3.0, 2.0, 3.0, 2.0, 2.0, 1.0],
+    [1.0, 0.0, 0.0, 1.1, 0.0, 1.0, 0.0, 0.0, 1.1, 0.0, 1.1, 0.0, 0.0, 1.0],
+    [1.0, 0.0, 0.0, 1.0, 0.0, 3.0, 2.0, 2.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0],
+    [3.0, 2.0, 2.0, 1.1, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 3.0, 2.0, 2.0, 1.0],
+    [1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.1, 0.0, 1.0, 0.0, 0.0, 1.0],
+    [3.0, 2.0, 2.0, 1.1, 0.0, 2.0, 2.0, 2.0, 0.0, 0.0, 1.1, 0.0, 0.0, 1.0],
+    [1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0],
+    [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.1, 2.0, 2.0, 2.0, 2.0, 2.0, 0.0]
+  ],
+
+  "rooms": [
+    { "id": 1, "x": -5, "z": -2, "occupied": false, "rotationY": 0, "condition": "In surgery", "patient_number": "20250100001", "patient_name": "John Doe", "surgery_type": "Knee replacement", "time_left": 120 },
+    { "id": 2, "x": -5, "z": 0.5, "occupied": false, "rotationY": 0, "condition": "Free" },
+    { "id": 3, "x": -5, "z": 2.5, "occupied": true, "rotationY": 0, "condition": "In maintenance" },
+    { "id": 4, "x": 0, "z": -2.5, "occupied": true, "rotationY": 0, "condition": "In surgery", "patient_number": "20250100002", "patient_name": "Jane Smith", "surgery_type": "Appendectomy", "time_left": 90 },
+    { "id": 5, "x": 0, "z": 0, "occupied": false, "rotationY": 0, "condition": "Free" },
+    { "id": 6, "x": 5, "z": -2.0, "occupied": false, "rotationY": 180, "condition": "Free" },
+    { "id": 7, "x": 5, "z": 1.5, "occupied": true, "rotationY": 180, "condition": "In surgery", "patient_number": "20250100003", "patient_name": "Alice Johnson", "surgery_type": "Hip replacement", "time_left": 60 }
+  ]
+
+  
+}

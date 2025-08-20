@@ -1,0 +1,32 @@
+@startuml 
+
+participant "Controller" as ctrl
+participant "Repository" as repo
+
+
+-> ctrl: get_items()
+
+activate ctrl
+ctrl -> repo: get_items()
+
+activate repo 
+repo --> ctrl: list_items
+deactivate
+
+<-- ctrl: list_items
+deactivate 
+
+->ctrl:delete(item)
+
+activate ctrl 
+ctrl -> repo: delete(item)
+
+activate repo 
+repo --> ctrl: item_deleted
+deactivate 
+
+<-- ctrl: item_deleted
+deactivate 
+
+
+@enduml

@@ -1,0 +1,36 @@
+<form [formGroup]="roomTypeForm" (ngSubmit)="onSubmit()" class="roomtype-form">
+    <mat-card class="details-card">
+        <mat-card-title>Add Room Type</mat-card-title>
+        <mat-card-content>
+
+    
+            <!-- Designation -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Enter designation" />
+                <mat-error *ngIf="roomTypeForm.get('name')?.hasError('required') && roomTypeForm.get('name')?.touched">
+                    Name is required.
+                </mat-error>
+                <mat-error *ngIf="roomTypeForm.get('name')?.hasError('pattern') && roomTypeForm.get('name')?.touched">
+                    Name can only contain letters and spaces.
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Description -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="Enter description"></textarea>
+                <mat-error
+                    *ngIf="roomTypeForm.get('description')?.hasError('maxlength') && roomTypeForm.get('description')?.touched">
+                    Description cannot exceed 200 characters.
+                </mat-error>
+            </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="roomTypeForm.invalid">
+                Submit
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>

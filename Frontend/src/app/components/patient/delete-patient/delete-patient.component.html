@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Delete Patient</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Are you sure you want to delete this patient with <strong>Medical Record Number:</strong> {{ medicalRecordNumber }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="deletePatient()">Yes, Delete</button>
+    <button mat-button (click)="cancel()">Cancel</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,68 @@
+{
+  "name": "frontend",
+  "bin": "dist/out-tsc/src/main.js",
+  "pkg": {
+    "assets": [
+      "dist/**/*"
+    ],
+    "targets": [
+      "node16"
+    ]
+  },
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "compile": "npx tsc"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^19.0.0",
+    "@angular/cdk": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/material": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "@auth0/auth0-angular": "^2.2.3",
+    "@types/three": "^0.169.0",
+    "bootstrap": "^5.3.3",
+    "frontend": "file:",
+    "lil-gui": "^0.20.0",
+    "rxjs": "~7.8.0",
+    "three": "^0.170.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.0",
+    "@angular/cli": "^19.0.6",
+    "@angular/compiler-cli": "^19.0.0",
+    "@cypress/schematic": "^2.5.2",
+    "@types/cypress": "^0.1.6",
+    "@types/jasmine": "~5.1.0",
+    "cypress": "^13.16.0",
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-edge-launcher": "^0.4.2",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.5.2"
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

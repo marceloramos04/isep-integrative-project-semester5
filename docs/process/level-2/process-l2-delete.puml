@@ -1,0 +1,50 @@
+@startuml 
+
+
+actor actor
+participant "UI" as ui
+participant "Backoffice" as bo
+
+activate actor
+actor -> ui: request items
+
+activate ui
+ui-> bo: requests items
+
+activate bo 
+bo --> ui: list of items
+deactivate 
+
+ui --> actor: list of items
+deactivate
+
+actor -> ui:selects item
+
+activate ui
+
+ui-->actor:item details
+deactivate 
+
+actor -> ui:ask for delete
+
+activate ui
+ui --> actor:request confirmation
+deactivate 
+
+alt if actor confirms
+actor -> ui:confirmation
+
+activate ui 
+ui->bo:delete(item)
+
+activate bo 
+bo --> ui: item deleted
+deactivate 
+
+ui --> actor:item deleted
+deactivate
+end
+
+
+
+@enduml

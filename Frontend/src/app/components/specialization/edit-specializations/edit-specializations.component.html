@@ -1,0 +1,34 @@
+<mat-card class="edit-specialization-card">
+  <mat-card-header>
+    <mat-card-title>Edit Specialization</mat-card-title>
+    <mat-card-subtitle>Code: {{ specializationCode }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="specializationDetails" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Designation</mat-label>
+        <input matInput formControlName="designation" placeholder="Enter designation" />
+        <mat-error *ngIf="specializationDetails.get('designation')?.hasError('required')">
+          Designation is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Enter description"></textarea>
+        <mat-error *ngIf="specializationDetails.get('description')?.hasError('required')">
+          Description is required.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="specializationDetails.invalid">
+          Save
+        </button>
+        <button mat-raised-button color="warn" type="button" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

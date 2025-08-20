@@ -1,0 +1,95 @@
+<body>
+  <form [formGroup]="filterForm" (ngSubmit)="search()">
+    <mat-form-field appearance="outline">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="patientName">
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('patientName')?.value" (click)="clearField('patientName')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="patientSurname">
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('patientSurname')?.value" (click)="clearField('patientSurname')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Operation Type</mat-label>
+      <mat-select formControlName="typeId">
+        @for (type of types; track type) {
+        <mat-option [value]="type.id">{{ type.name }}</mat-option>
+        }
+      </mat-select>
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('typeId')?.value" (click)="clearField('typeId')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        @for (priority of priorities; track priority) {
+        <mat-option [value]="priority">{{ priority }}</mat-option>
+        }
+      </mat-select>
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('priority')?.value" (click)="clearField('priority')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        @for (status of statuses; track status) {
+        <mat-option [value]="status">{{ status }}</mat-option>
+        }
+      </mat-select>
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('status')?.value" (click)="clearField('status')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Search</button>
+  </form>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="highlight-rows">
+  
+      <ng-container matColumnDef="patientName"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Patient </th>
+        <td mat-cell *matCellDef="let row"> {{row.patientName}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="operationTypeName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Operation Type </th>
+        <td mat-cell *matCellDef="let row"> {{row.operationTypeName}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="priority"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Priority </th>
+        <td mat-cell *matCellDef="let row"> {{row.priority}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="status"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row (click)="onRowClicked(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      
+      <tr class="mat-row" *matNoDataRow> 
+        <td class="mat-cell" colspan="4">No data matching the filter</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</body>

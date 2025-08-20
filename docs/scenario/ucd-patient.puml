@@ -1,0 +1,11 @@
+@startuml
+
+actor Patient as p
+
+p --> (UC3 - Register for the healthcare application)
+p --> (UC4 - Update my user profile)
+p --> (UC5 - Delete my account and all associated data)
+p --> (UC7 - Log in to the healthcare system using my external IAM credentials)
+
+
+@enduml

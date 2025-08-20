@@ -1,0 +1,51 @@
+name: Deploy Backoffice of Medical Records
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Daily schedule at midnight
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+
+    - name: Build project
+      run: |
+        cd BackofficeMedicalRecords
+        npm install
+        npm start & sleep 10
+        pkill -f node & echo "Execution killed"
+        echo "Build completed"
+
+    - name: Set SSH
+      run: |
+        sudo apt-get update
+        sudo apt-get install ssh
+        sudo apt-get install sshpass
+  
+    - name: Add SSH host key
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -p 10330 vsgate-ssh.dei.isep.ipp.pt >> ~/.ssh/known_hosts
+    
+    - name: Deploy to server
+      run: |
+        # Copy files
+        sshpass -p 'grupo22425' rsync -avz --delete -e 'ssh -p 10330' ${{ github.workspace }}/BackofficeMedicalRecords/ root@vsgate-ssh.dei.isep.ipp.pt:/etc/sarm/backoffice/mrecords/
+        # Restart services if needed
+        sshpass -p 'grupo22425' ssh -p 10330 root@vsgate-ssh.dei.isep.ipp.pt 'systemctl restart sarm-backoffice-mrecords'
+
+    # - name: Stop Node.js server
+    #   run: |
+    #     pkill -f node

@@ -1,0 +1,68 @@
+<mat-card class="details-card">
+    <mat-card-header>
+      <mat-card-title>Patient Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="patientDetails">
+      <div class="row">
+        <div class="col">
+          <p><strong>First Name:</strong> {{ patientDetails.firstName }}</p>
+        </div>
+        <div class="col">
+          <p><strong>Last Name:</strong> {{ patientDetails.lastName }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p><strong>Phone Number:</strong> {{ patientDetails.phoneNumber }}</p>
+        </div>
+        <div class="col">
+          <p><strong>Email:</strong> {{ patientDetails.email }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>
+            <strong>Emergency Contact:</strong>
+            {{ patientDetails.emergencyContact }}
+          </p>
+        </div>
+        <div class="col">
+          <p>
+            <strong>Date of Birth:</strong>
+            {{ patientDetails.dateOfBirth | date }}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p><strong>Gender:</strong> {{ patientDetails.gender }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-content *ngIf="!patientDetails">
+      <p>Loading patient details...</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      [routerLink]="['/patient-view', patientDetails?.medicalRecordNumber, 'update-patient',]"
+      color="primary"
+      type="button"
+    >
+      Edit
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-actions>
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      (click)="deactivate()"
+      color="primary"
+      type="button"
+    >
+      Deactivate
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </mat-card-actions>
+  

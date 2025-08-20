@@ -1,0 +1,47 @@
+<body>
+    <!-- Container Principal -->
+    <div class="main-container">
+
+        <!-- Bloco de Botões de Navegação -->
+        <!-- <mat-card-actions style="display: flex; justify-content: space-between; gap: 40px;">
+            <div class="button-container">
+                
+                <img src="assets/Admin.png" alt="Admin Icon" class="button-icon">
+                <button mat-flat-button color="primary" [routerLink]="['/admin-view']">Admin</button>
+            </div>
+            <div class="button-container">
+                
+                <img src="assets/Doctor.png" alt="Doctor Icon" class="button-icon">
+                <button mat-flat-button color="primary" [routerLink]="['/doctor-view']">Doctor</button>
+            </div>
+            <div class="button-container">
+                
+                <img src="assets/Patient.png" alt="Patient Icon" class="button-icon">
+                <button mat-flat-button color="primary" [routerLink]="['/patient-view/:id/details-patient']">Patient</button>
+            </div>
+        </mat-card-actions> -->
+
+        <!-- Bloco de Login -->
+        <div class="login-container">
+            <h1 class="display-5 fw-bold text-body-emphasis">Login</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Welcome!</p>
+                <!-- Container de Login com botão estilo mat-flat-button -->
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <mat-card-actions style="display: flex; justify-content: center; gap: 40px;">
+                        <div class="button-container">
+
+                            <!-- @if (!isAuthenticated) { -->
+                            <button mat-flat-button color="primary" (click)="login()">Login</button>
+                            <!-- } @else {
+                            <button mat-flat-button color="primary" (click)="logout()">Logout</button>
+                            } -->
+
+                        </div>
+                    </mat-card-actions>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>

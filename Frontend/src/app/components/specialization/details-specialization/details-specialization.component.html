@@ -1,0 +1,16 @@
+<mat-card *ngIf="specialization" class="specialization-details">
+    <mat-card-header>
+      <mat-card-title>{{ specialization.designation }}</mat-card-title>
+      <mat-card-subtitle>Specialization Code: {{ specialization.specializationCode }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ specialization.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onEdit()">Edit</button>
+      <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  <div *ngIf="!specialization">
+    <p>No specialization selected.</p>
+  </div>

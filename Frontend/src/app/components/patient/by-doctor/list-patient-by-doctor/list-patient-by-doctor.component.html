@@ -1,0 +1,102 @@
+<div style="padding: 3%">
+  <div style="">Search for a patient</div>
+  <br>
+  <form [formGroup]="filterForm" (ngSubmit)="search()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>FirstName</mat-label>
+      <input matInput formControlName="firstName">
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('firstName')?.value" (click)="clearField('firstName')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>LastName</mat-label>
+      <input matInput formControlName="lastName">
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('lastName')?.value" (click)="clearField('lastName')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('email')?.value" (click)="clearField('email')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" placeholder="YYYY-MM-DD">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('dateOfBirth')?.value"
+        (click)="clearField('dateOfBirth')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>MedicalRecordNumber</mat-label>
+      <input matInput formControlName="medicalRecordNumber">
+      <button mat-icon-button matSuffix *ngIf="filterForm.get('medicalRecordNumber')?.value"
+        (click)="clearField('medicalRecordNumber')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Botão de Busca -->
+    <button mat-raised-button color="primary" type="submit">Search</button>
+  </form>
+  <!-- Tabela de Resultados -->
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="highlight-rows">
+      <!-- Coluna: Nome -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> FirstName </th>
+        <td mat-cell *matCellDef="let row"> {{ row.firstName }} </td>
+      </ng-container>
+
+      <!-- Coluna: Nome -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> LastName </th>
+        <td mat-cell *matCellDef="let row"> {{ row.lastName }} </td>
+      </ng-container>
+
+      <!-- Coluna: email -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let row"> {{ row.email }} </td>
+      </ng-container>
+
+      <!-- Coluna: dateOfBirth -->
+      <ng-container matColumnDef="dateOfBirth">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DateOfBirth </th>
+        <td mat-cell *matCellDef="let row"> {{ row.dateOfBirth }} </td>
+      </ng-container>
+
+      <!-- Coluna: medicalRecordNumber -->
+      <ng-container matColumnDef="medicalRecordNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> MedicalRecordNumber </th>
+        <td mat-cell *matCellDef="let row"> {{ row.medicalRecordNumber }} </td>
+      </ng-container>
+
+      <!-- Cabeçalho e Linhas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row (click)="onRowClicked(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Mensagem: Sem Dados -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter</td>
+      </tr>
+    </table>
+
+
+    <!-- Paginação -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</div>

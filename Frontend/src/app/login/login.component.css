@@ -1,0 +1,147 @@
+/* Centralização geral */
+body {
+    background-color: #f4f7fc;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Principal */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    /* Aumenta o espaçamento entre os blocos de login e navegação */
+    width: 100%;
+    max-width: 800px;
+    /* Limita a largura total */
+}
+
+/* Bloco de Login */
+.login-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 30px;
+    /* Diminuir o padding */
+    width: 100%;
+    max-width: 400px;
+    /* Diminuir a largura máxima */
+}
+
+/* Estilo do título */
+h1.display-5 {
+    font-size: 1.8rem;
+    /* Diminuir o tamanho do título */
+    font-weight: bold;
+    color: #4b4f58;
+    margin-bottom: 15px;
+    /* Diminuir o espaçamento inferior */
+}
+
+/* Estilo da descrição */
+p.lead {
+    color: #6c757d;
+    font-size: 1rem;
+    /* Diminuir o tamanho da descrição */
+    margin-bottom: 20px;
+    /* Diminuir o espaçamento inferior */
+}
+
+/* Botões de Navegação */
+.mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    /* Aumenta o espaçamento entre os botões */
+}
+
+/* Botões de navegação - Aumentar o tamanho */
+.button-container button {
+    padding: 15px 40px;
+    /* Aumenta o tamanho do botão */
+    font-size: 1.5rem;
+    /* Aumenta o tamanho do texto do botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.mat-flat-button:hover {
+    background-color: #0056b3;
+    /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px);
+    /* Efeito de elevação ao passar o mouse */
+}
+
+/* Estilo para os ícones em cima dos botões */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    /* Alinha os elementos na vertical */
+    align-items: center;
+    /* Alinha horizontalmente ao centro */
+    gap: 15px;
+    /* Ajusta o espaçamento vertical */
+    margin-bottom: 20px;
+    /* Espaçamento entre a imagem e o botão */
+}
+
+.button-icon {
+    width: 80px;
+    /* Aumenta o tamanho da imagem */
+    height: 80px;
+    /* Aumenta o tamanho da imagem */
+    margin-bottom: 15px;
+    /* Espaço entre a imagem e o botão */
+    object-fit: cover;
+    /* Garante que a imagem não distorça */
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+    .main-container {
+        padding: 20px;
+    }
+
+    .button-container {
+        gap: 15px;
+        /* Espaçamento menor em telas menores */
+    }
+
+    .button-icon {
+        width: 60px;
+        /* Reduz o tamanho das imagens em telas pequenas */
+        height: 60px;
+        /* Reduz o tamanho das imagens em telas pequenas */
+    }
+
+    .login-container {
+        padding: 20px;
+        /* Diminuir o padding em telas menores */
+        max-width: 350px;
+        /* Reduzir a largura em telas pequenas */
+    }
+
+    h1.display-5 {
+        font-size: 1.5rem;
+        /* Reduzir o tamanho do título em telas pequenas */
+    }
+
+    p.lead {
+        font-size: 1rem;
+        /* Reduzir o tamanho da descrição em telas pequenas */
+    }
+
+    .button-container button {
+        padding: 12px 25px;
+        /* Ajustar o tamanho dos botões em telas menores */
+        font-size: 1.2rem;
+        /* Ajustar o tamanho do texto dos botões em telas menores */
+    }
+}

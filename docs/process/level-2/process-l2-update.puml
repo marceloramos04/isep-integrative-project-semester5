@@ -1,0 +1,46 @@
+@startuml 
+
+
+actor actor
+participant "UI" as ui
+participant "Backoffice" as bo
+
+activate actor
+actor -> ui: request to update info
+
+activate ui
+ui->bo: request list of items
+
+activate bo
+bo --> ui: list of items
+deactivate bo
+
+ui --> actor: list of items
+deactivate
+
+actor -> ui:selects item
+
+activate ui
+ui -> bo: request item
+
+activate bo
+bo --> ui: item
+deactivate 
+
+ui --> actor:item
+deactivate
+
+actor -> ui: updates info
+
+activate ui 
+ui -> bo: updated data
+
+activate bo
+bo --> ui: updated item
+deactivate 
+
+ui --> actor: updated item
+deactivate
+
+
+@enduml

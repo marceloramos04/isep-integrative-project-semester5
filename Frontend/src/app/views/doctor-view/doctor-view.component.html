@@ -1,0 +1,57 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" role="navigation" mode="side" opened="true">
+        <mat-toolbar>Doctor Dashboard</mat-toolbar>
+        <mat-toolbar>
+            <button mat-button color="warn" (click)="logout()">Logout</button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Operation Requests
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item href="#" [routerLink]="['add-request']">New</a>
+                    <a mat-list-item href="#" [routerLink]="['list-requests']">Manage</a>
+                </mat-nav-list>
+
+
+
+            </mat-expansion-panel>
+
+            <mat-panel-title>
+                <a mat-list-item href="#" [routerLink]="['patients']">Medical Records</a>
+            </mat-panel-title>
+            
+            <mat-panel-title>
+                <a mat-list-item href="#" [routerLink]="['hospital']">Hospital</a>
+            </mat-panel-title>
+            
+        </mat-nav-list>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Allergies
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <a mat-list-item href="#" [routerLink]="['list-allergies']">Manage</a>
+                <!-- <a mat-list-item href="#" [routerLink]="['update-staff']">Update</a>
+                                          <a mat-list-item href="#" [routerLink]="['deactivate-staff']">Deactivate</a> -->
+            </mat-nav-list>
+        </mat-expansion-panel>
+
+
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<style>
+</style>

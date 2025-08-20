@@ -1,0 +1,18 @@
+<mat-card *ngFor="let staff of staffList">
+    <mat-card-header>
+        <mat-card-title>{{ staff.firstName }} {{ staff.lastName }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div><strong>Email:</strong> {{ staff.email }}</div>
+        <div><strong>Specialization:</strong> {{ staff.specialization }}</div>
+    </mat-card-content>
+
+<!--
+<mat-card-actions>
+    <button mat-icon-button [routerLink]="['/update-staff', staff.id]">
+        <mat-icon>edit</mat-icon>
+    </button>
+</mat-card-actions>
+-->
+</mat-card>

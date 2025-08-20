@@ -1,0 +1,85 @@
+[
+    {
+        "patientId": "202501000001",
+        "allergiesCodes": [
+            "91935009",
+            "235282007"
+        ],
+        "medicalConditionsCodes": [
+            "5A11",
+            "6A80"
+        ],
+        "medicalHistory": [
+            {
+                "date": "2010-05-15",
+                "description": "Diagnosed with Type 1 diabetes mellitus."
+            },
+            {
+                "date": "2015-09-10",
+                "description": "Diagnosed with Major depressive disorder."
+            }
+        ],
+        "familyMedicalHistory": [
+            {
+                "relative": "Father",
+                "description": "Hypertension, Type 2 Diabetes"
+            },
+            {
+                "relative": "Mother",
+                "description": "Asthma, Osteoporosis"
+            }
+        ],
+        "currentMedications": [
+            {
+                "medication": "Insulin",
+                "dose": "10 units",
+                "frequency": "twice a day"
+            },
+            {
+                "medication": "Sertraline",
+                "dose": "50 mg",
+                "frequency": "once a day"
+            }
+        ],
+        "vaccines": [
+            {
+                "description": "Flu vaccine",
+                "lastDose": "2023-10-01"
+            },
+            {
+                "description": "COVID-19 booster",
+                "lastDose": "2023-09-01"
+            }
+        ],
+        "lifeStyle": [
+            {
+                "habit": "Smoking",
+                "description": "Non-smoker"
+            },
+            {
+                "habit": "Alcohol",
+                "description": "Occasional and social consumption"
+            },
+            {
+                "habit": "Diet",
+                "description": "Balanced diet with occasional spicy food"
+            },
+            {
+                "habit": "Exercise",
+                "description": "30 minutes of daily walking, yoga twice a week"
+            }
+        ],
+        "recentVisitNotes": {
+            "date": "2024-11-01",
+            "notes": [
+                "Complaints of mild shortness of breath during exercise.",
+                "Spirometry indicates stable lung function.",
+                "Blood pressure: 138/86 mmHg.",
+                "Advice: maintain current medication and healthy lifestyle."
+            ]
+        }
+    },
+    {
+        "patientId": "202501000002"
+    }
+]

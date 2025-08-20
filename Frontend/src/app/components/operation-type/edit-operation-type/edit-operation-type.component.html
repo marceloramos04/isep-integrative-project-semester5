@@ -1,0 +1,73 @@
+<form [formGroup]="form" novalidate (ngSubmit)="submit()">
+    <mat-card class="details-card">
+        <mat-card-header>
+            <mat-card-title>Operation Type Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Operation Type Name</mat-label>
+                        <input matInput formControlName="name">
+                        <!-- @if (form.controls['name'].hasError('required')) {
+                        <mat-error>First name is <strong>required</strong></mat-error>
+                        } -->
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>EstimatedDuration</mat-label>
+                        <input matInput formControlName="estimatedDuration">
+                        <!-- @if (form.controls['lastName'].hasError('required')) {
+                        <mat-error>Last name is <strong>required</strong></mat-error>
+                        } -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>
+                            <mat-label>Role</mat-label>
+                        </mat-label>
+                        <mat-select>
+                            @for (role of roles; track role) {
+                            <mat-option [value]="role">{{ role }}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>
+                            <mat-label>Specialization</mat-label>
+                        </mat-label>
+                        <mat-select>
+                            @for (specialization of specializations; track specialization) {
+                            <mat-option [value]="specialization">{{ specialization }}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Quantity</mat-label>
+                        <input type='number' matInput formControlName="quantity">
+                        <!-- @if (form.controls['phoneNumber'].hasError('required')) {
+                        <mat-error>Phone Number is <strong>required</strong></mat-error>
+                        } -->
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

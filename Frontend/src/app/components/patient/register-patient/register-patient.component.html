@@ -1,0 +1,103 @@
+<form [formGroup]="patientDetails" novalidate (ngSubmit)="submit()">
+    <mat-card class="details-card">
+        <mat-card-header>
+            <mat-card-title>Register Patient</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>First name</mat-label>
+                        <input matInput formControlName="firstName">
+                        @if (patientDetails.controls['firstName'].hasError('required')) {
+                        <mat-error>First name is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Last name</mat-label>
+                        <input matInput formControlName="lastName">
+                        @if (patientDetails.controls['lastName'].hasError('required')) {
+                        <mat-error>Last name is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Phone number</mat-label>
+                        <input id="phone-field" type='tel' matInput formControlName="phoneNumber">
+                        @if (patientDetails.controls['phoneNumber'].hasError('required')) {
+                        <mat-error>Phone Number is <strong>required</strong></mat-error>
+                        }
+                        <mat-icon matSuffix>phone</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="user@example.com" formControlName="email">
+                        @if (patientDetails.controls['email'].hasError('required')) {
+                        <mat-error>Email is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Emergency Contact</mat-label>
+                        <input id="emergency-field" type='tel' matInput formControlName="emergencyContact">
+                        @if (patientDetails.controls['emergencyContact'].hasError('required')) {
+                        <mat-error>Emergency contact is <strong>required</strong></mat-error>
+                        }
+                        <mat-icon matSuffix>phone</mat-icon>
+                    </mat-form-field>
+                </div> 
+
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Date of Birth</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                        <mat-hint>MM-DD-YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div> 
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender">
+                            @for (gender of genders; track gender) {
+                            <mat-option id="gender-option" [value]="gender">{{ gender }}</mat-option>
+                            }
+                        </mat-select>
+                        @if (patientDetails.controls['gender'].hasError('required')) {
+                        <mat-error>Specialization is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </mat-card-actions>
+
+    </mat-card>
+
+</form>
+
+
+
+
+

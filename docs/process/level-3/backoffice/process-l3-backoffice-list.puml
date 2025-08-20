@@ -1,0 +1,18 @@
+@startuml 
+
+participant "Controller" as ctrl 
+participant "Repository" as repo 
+
+-> ctrl: get_list(parameters)
+activate ctrl 
+
+ctrl -> repo:get_list(parameters)
+
+activate repo 
+repo --> ctrl: list
+deactivate 
+
+<-- ctrl: list
+deactivate
+
+@enduml

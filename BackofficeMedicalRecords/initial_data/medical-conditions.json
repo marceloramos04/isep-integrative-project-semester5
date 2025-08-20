@@ -1,0 +1,102 @@
+[
+    {
+        "name": "Cholera",
+        "code": "A04.0",
+        "description": "Cholera is an acute diarrheal illness caused by infection of the intestine with the bacterium Vibrio cholerae. Cholera is transmitted through contaminated food and water. Symptoms include watery diarrhea, vomiting, and leg cramps. Severe cases can lead to dehydration and death if not treated promptly."
+    },
+    {
+        "name": "Rotavirus enteritis",
+        "code": "A08.0",
+        "description": "Rotavirus enteritis is an acute diarrheal illness caused by infection of the intestine with the rotavirus. Rotavirus is transmitted through contaminated food and water. Symptoms include watery diarrhea, vomiting, and fever. Severe cases can lead to dehydration and death if not treated promptly."
+    },
+    {
+        "name": "Human Immunodeficiency Virus (HIV) disease",
+        "code": "B20",
+        "description": "Human Immunodeficiency Virus (HIV) disease is a chronic viral infection that attacks the immune system. HIV is transmitted through contact with infected blood, semen, vaginal fluids, or breast milk. Symptoms include fever, fatigue, weight loss, and swollen lymph nodes. Severe cases can lead to acquired immunodeficiency syndrome (AIDS) if not treated promptly."
+    },
+    {
+        "name": "Plasmodium falciparum malaria",
+        "code": "B50",
+        "description": "Plasmodium falciparum malaria is a life"
+    },
+    {
+        "name": "Malignant neoplasm of lung",
+        "code": "2A20.0",
+        "description": "Lung cancer is a malignant neoplasm of the lung tissue. Lung cancer is caused by exposure to tobacco smoke, radon gas, asbestos, and other environmental toxins. Symptoms include cough, chest pain, shortness of breath, and weight loss. Severe cases can lead to death if not treated promptly."
+    },
+    {
+        "name": "Malignant neoplasm of the breast",
+        "code": "2F44.0",
+        "description": "Breast cancer is a malignant neoplasm of the breast tissue. Breast cancer is caused by genetic mutations, hormonal factors, and environmental toxins. Symptoms include breast lump, breast pain, nipple discharge, and skin changes. Severe cases can lead to death if"
+    },
+    {
+        "name": "Iron deficiency anemia",
+        "code": "3A01.1",
+        "description": "Iron deficiency anemia is a condition in which the body lacks sufficient iron to produce hemoglobin. Iron deficiency anemia is caused by inadequate dietary intake of iron, blood loss, and malabsorption of iron. Symptoms include fatigue, weakness, pale skin, and shortness of breath. Severe cases can lead to heart failure if not treated promptly."
+    },
+    {
+        "name": "Hereditary hemochromatosis",
+        "code": "4A44",
+        "description": "Hereditary hemochromatosis is a genetic disorder that causes the body to absorb too much iron from the diet. Hereditary hemochromatosis is caused by mutations in the HFE gene. Symptoms include fatigue, joint pain, abdominal pain, and skin pigmentation. Severe cases can lead to liver cirrhosis, heart failure, and diabetes if not treated promptly."
+    },
+    {
+        "name": "Type 1 diabetes mellitus",
+        "code": "5A11",
+        "description": "Type 1 diabetes mellitus is a chronic metabolic disorder that results from the body's inability to produce insulin. Type 1 diabetes mellitus is caused by autoimmune destruction of the insulin"
+    },
+    {
+        "name": "Obesity",
+        "code": "5B55",
+        "description": "Obesity is a chronic metabolic disorder that results from excessive accumulation of body fat. Obesity is caused by genetic factors, hormonal factors, and environmental factors. Symptoms include weight gain, fatigue, and shortness of breath. Severe cases can lead to heart disease, stroke, and diabetes if not treated promptly."
+    },
+    {
+        "name": "Major depressive disorder",
+        "code": "6A80",
+        "description": "Major depressive disorder is a mood disorder that causes persistent feelings of sadness and loss of interest in daily activities. Major depressive disorder is caused by genetic factors, hormonal factors, and environmental factors. Symptoms include depressed mood, fatigue, sleep disturbances, and appetite changes. Severe cases"
+    },
+    {
+        "name": "Generalized anxiety disorder",
+        "code": "6C40",
+        "description": "Generalized anxiety disorder is an anxiety disorder that causes excessive worry and fear about everyday events. Generalized anxiety disorder is caused by genetic factors, hormonal factors, and environmental factors. Symptoms include restlessness, irritability, muscle tension, and sleep disturbances. Severe cases can lead to panic attacks and phobias if not treated promptly."
+    },
+    {
+        "name": "Osteoporosis with pathological fracture",
+        "code": "FB20.1",
+        "description": "Osteoporosis is a metabolic bone disorder that causes decreased bone density and increased risk of fractures. Osteoporosis is caused by hormonal factors, nutritional factors, and lifestyle factors. Symptoms include bone pain, fractures, and loss of height. Severe cases can lead to disability and death if not treated promptly."
+    },
+    {
+        "name": "Osteoarthritis of the knee",
+        "code": "FB81.1",
+        "description": "Osteoarthritis is a degenerative joint disorder that causes pain, stiffness, and swelling in the affected joint. Osteoarthritis is caused by aging, obesity, and joint injury. Symptoms include joint pain, joint stiffness, and joint swelling. Severe cases can lead to disability and joint deformity if not treated promptly."
+    },
+    {
+        "name": "Osteoarthritis of the hip",
+        "code": "FB81.2",
+        "description": "Osteoarthritis is a degenerative joint disorder that causes pain, stiffness, and swelling in the affected joint. Osteoarthritis is caused by aging, obesity, and joint injury. Symptoms include joint pain, joint stiffness, and joint swelling. Severe cases can lead to disability and joint deformity if not treated promptly."
+    },
+    {
+        "name": "Rheumatoid arthritis",
+        "code": "FB80.1",
+        "description": "Rheumatoid arthritis is an autoimmune joint disorder that causes pain, swelling, and stiffness in the affected joint. Rheumatoid arthritis is caused by genetic factors, hormonal factors, and environmental factors. Symptoms include joint pain, joint swelling, and joint stiffness. Severe cases can lead to disability and joint deformity if not treated promptly."
+    },
+    {
+        "name": "Fracture of femur",
+        "code": "FA24.0",
+        "description": ""
+    },
+    {
+        "name": "Fracture of radius and ulna",
+        "code": "FA22.0",
+        "description": ""
+    },
+    {
+        "name": "Dislocation of shoulder",
+        "code": "FA21.0",
+        "description": ""
+    },
+    {
+        "name": "Low back pain",
+        "code": "FB70.0",
+        "description": ""
+    }
+]

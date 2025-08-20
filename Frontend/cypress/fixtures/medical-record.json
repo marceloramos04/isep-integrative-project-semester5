@@ -1,0 +1,116 @@
+{
+    "recentVisitNotes": {
+        "date": "2024-11-01T00:00:00.000Z",
+        "notes": [
+            "Complaints of mild shortness of breath during exercise.",
+            "Spirometry indicates stable lung function.",
+            "Blood pressure: 138/86 mmHg.",
+            "Advice: maintain current medication and healthy lifestyle."
+        ]
+    },
+    "_id": "6771c35a187f48a802dd15c4",
+    "patientId": "202501000001",
+    "allergies": [
+        {
+            "name": "Peanut Allergy",
+            "code": "91935009",
+            "description": "Allergy to peanuts",
+            "_id": "6771c358187f48a802dd1572"
+        },
+        {
+            "name": "Milk Allergy (Dairy products)",
+            "code": "235282007",
+            "description": "Allergy to milk",
+            "_id": "6771c358187f48a802dd157e"
+        }
+    ],
+    "medicalConditions": [
+        {
+            "name": "Type 2 diabetes mellitus",
+            "code": "5A11",
+            "description": "",
+            "_id": "6771c35a187f48a802dd15ac",
+            "diagnosisDate": "2024-12-29T21:47:06.971Z"
+        },
+        {
+            "name": "Major depressive disorder",
+            "code": "6A80",
+            "description": "",
+            "_id": "6771c35a187f48a802dd15b0",
+            "diagnosisDate": "2024-12-29T21:47:07.077Z"
+        }
+    ],
+    "medicalHistory": [
+        {
+            "date": "2010-05-15T00:00:00.000Z",
+            "description": "Diagnosed with Type 1 diabetes mellitus.",
+            "_id": "6771c35b187f48a802dd15cd"
+        },
+        {
+            "date": "2015-09-10T00:00:00.000Z",
+            "description": "Diagnosed with Major depressive disorder.",
+            "_id": "6771c35b187f48a802dd15ce"
+        }
+    ],
+    "familyMedicalHistory": [
+        {
+            "relative": "Father",
+            "description": "Hypertension, Type 2 Diabetes",
+            "_id": "6771c35b187f48a802dd15cf"
+        },
+        {
+            "relative": "Mother",
+            "description": "Asthma, Osteoporosis",
+            "_id": "6771c35b187f48a802dd15d0"
+        }
+    ],
+    "currentMedications": [
+        {
+            "medication": "Insulin",
+            "dose": "10 units",
+            "frequency": "twice a day",
+            "_id": "6771c35b187f48a802dd15d1"
+        },
+        {
+            "medication": "Sertraline",
+            "dose": "50 mg",
+            "frequency": "once a day",
+            "_id": "6771c35b187f48a802dd15d2"
+        }
+    ],
+    "vaccines": [
+        {
+            "description": "Flu vaccine",
+            "lastDose": "2023-10-01T00:00:00.000Z",
+            "_id": "6771c35b187f48a802dd15d3"
+        },
+        {
+            "description": "COVID-19 booster",
+            "lastDose": "2023-09-01T00:00:00.000Z",
+            "_id": "6771c35b187f48a802dd15d4"
+        }
+    ],
+    "lifeStyle": [
+        {
+            "habit": "Smoking",
+            "description": "Non-smoker",
+            "_id": "6771c35b187f48a802dd15d5"
+        },
+        {
+            "habit": "Alcohol",
+            "description": "Occasional and social consumption",
+            "_id": "6771c35b187f48a802dd15d6"
+        },
+        {
+            "habit": "Diet",
+            "description": "Balanced diet with occasional spicy food",
+            "_id": "6771c35b187f48a802dd15d7"
+        },
+        {
+            "habit": "Exercise",
+            "description": "30 minutes of daily walking, yoga twice a week",
+            "_id": "6771c35b187f48a802dd15d8"
+        }
+    ],
+    "__v": 0
+}

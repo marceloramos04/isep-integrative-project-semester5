@@ -1,0 +1,35 @@
+@startuml 
+
+participant "Controller" as ctrl
+participant "mapper:\n DTO" as dto
+participant "Service" as serv 
+participant "object:\n Aggregate" as obj
+participant "Repository" as repo 
+
+
+-> ctrl: new_object(data)
+
+activate ctrl
+ctrl -> dto: map(data)
+
+activate dto 
+dto --> ctrl: mapped_data
+deactivate 
+
+ctrl -> serv: new_object(mapped_data)
+
+activate serv
+serv -> obj**
+serv ->repo: save(object)
+
+activate repo 
+repo --> serv: saved_object 
+deactivate 
+
+serv --> ctrl: saved_object
+deactivate 
+
+<-- ctrl: saved_object 
+deactivate 
+
+@enduml

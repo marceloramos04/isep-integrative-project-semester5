@@ -1,0 +1,18 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" role="navigation" mode="side" opened="true">
+
+    <mat-toolbar>
+      <button mat-button color="warn" (click)="logout()">Logout</button>
+    </mat-toolbar>
+        <mat-nav-list>
+        </mat-nav-list>
+      
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

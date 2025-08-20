@@ -1,0 +1,6 @@
+// ligar Request a Staff
+// ligar User a Patient e Staff
+// acrescentar Password ao User
+
+- Appoitment e Surgery room nao sao para implementar já no sprint A
+- experimentar o NotebookLM para consultar a documentação

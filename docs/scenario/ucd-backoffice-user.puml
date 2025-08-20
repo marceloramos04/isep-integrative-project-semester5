@@ -1,0 +1,9 @@
+@startuml
+
+
+actor BackofficeUser as bu
+
+bu --> (UC02 - Reset my password if I forget it)
+bu --> (UC06 - Log in to the system using my credentials,)
+
+@enduml

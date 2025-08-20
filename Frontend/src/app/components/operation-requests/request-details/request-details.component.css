@@ -1,0 +1,8 @@
+.detail {
+  margin-bottom: 10px;
+}
+
+.detail strong {
+  display: inline-block;
+  width: 150px;
+}

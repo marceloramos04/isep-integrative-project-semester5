@@ -1,0 +1,11 @@
+@startuml
+
+actor Doctor as doc
+
+doc --> (UC16 - Request an operation)
+doc --> (UC17 - Update an operation requisition)
+doc --> (UC18 - Remove an operation requisition)
+doc --> (UC19 - List/search operation requisitions)
+
+
+@enduml

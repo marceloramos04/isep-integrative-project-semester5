@@ -1,0 +1,21 @@
+@startuml
+
+actor Administrator as adm
+
+left to right direction
+
+adm --> (UC01 - Register new backoffice users via an out-of-band process)
+adm-->  (UC08 - Create a new patient profile)
+adm-->  (UC09 - Edit an existing patient profile)
+adm-->  (UC10 - Delete a patient profile)
+adm-->  (UC11 - List/search patient profiles by different attributes)
+adm-->  (UC12 - Create a new staff profile)
+adm-->  (UC13 - Edit a staff’s profile)
+adm-->  (UC14 - Deactivate a staff profile)
+adm-->  (UC15 - List/search staff profiles)
+adm-->  (UC20 - Add new types of operations)
+adm-->  (UC21 - Edit existing operation types)
+adm-->  (UC22 - Remove obsolete or no longer performed operation types)
+adm-->  (UC23 - List/search operation types)
+
+@enduml

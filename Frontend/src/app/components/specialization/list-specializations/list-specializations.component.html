@@ -1,0 +1,66 @@
+<body>
+    <form [formGroup]="filterForm" (ngSubmit)="search()">
+      <!-- Specialization Code -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Specialization Code</mat-label>
+        <input matInput formControlName="specializationCode">
+        <button mat-icon-button matSuffix *ngIf="filterForm.get('specializationCode')?.value" (click)="clearField('specializationCode')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <!-- Designation -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Designation</mat-label>
+        <input matInput formControlName="designation">
+        <button mat-icon-button matSuffix *ngIf="filterForm.get('designation')?.value" (click)="clearField('designation')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <!-- Description -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+        <button mat-icon-button matSuffix *ngIf="filterForm.get('description')?.value" (click)="clearField('description')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <!-- Search Button -->
+      <button mat-raised-button color="primary" type="submit">Search</button>
+    </form>
+  
+    <!-- Result Table -->
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort class="highlight-rows">
+        <!-- Column: Specialization Code -->
+        <ng-container matColumnDef="specializationCode">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Specialization Code </th>
+          <td mat-cell *matCellDef="let row"> {{ row.specializationCode }} </td>
+        </ng-container>
+  
+        <!-- Column: Designation -->
+        <ng-container matColumnDef="designation">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Designation </th>
+          <td mat-cell *matCellDef="let row"> {{ row.designation }} </td>
+        </ng-container>
+  
+        <!-- Column: Description -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let row"> {{ row.description }} </td>
+        </ng-container>
+  
+        <!-- Header and Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row (click)="onRowClicked(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+        <!-- No Data Message -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  

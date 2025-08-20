@@ -1,0 +1,28 @@
+@startuml 
+
+
+actor actor
+participant "UI" as ui
+participant "Backoffice" as bo 
+
+activate actor
+actor -> ui: request to create item
+
+activate ui
+ui --> actor: asks for data
+deactivate
+
+actor -> ui:enters data
+
+activate ui
+ui -> bo:data and request to create new item
+
+activate bo
+bo --> ui: new item 
+deactivate 
+
+ui --> actor:new item
+deactivate
+
+
+@enduml

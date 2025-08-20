@@ -1,0 +1,56 @@
+name: Build and Deploy Frontend - vs572
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # env:
+    #   SSH_PASSWORD: grupo22425
+    #   SSH_PORT: 10608
+    #   SSH_HOST: vsgate-ssh.dei.isep.ipp.pt
+    #   SSH_USER: root
+    #   REMOTE_PATH: /etc/sarm/frontend/
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+
+    - name: Build project
+      run: |
+        cd Frontend
+        npm install
+        npm run build
+
+    - name: Set SSH
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ssh sshpass
+  
+    - name: Add SSH host key
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -p 10572 vsgate-ssh.dei.isep.ipp.pt >> ~/.ssh/known_hosts
+
+    - name: Deploy to server 572
+      run: |
+        # Copy files
+        sshpass -p 'grupo22425' rsync -avz --delete -e 'ssh -p 10572' ${{ github.workspace }}/Frontend/ root@vsgate-ssh.dei.isep.ipp.pt:/etc/sarm/frontend/
+        # Restart services if needed
+        sshpass -p 'grupo22425' ssh -p 10572 root@vsgate-ssh.dei.isep.ipp.pt 'systemctl restart sarm-frontend'
+    
+    # - name: Deploy to server 608
+    #   run: |
+    #     # Copy files
+    #     sshpass -p 'grupo22425' rsync -avz --delete -e 'ssh -p 10608' ${{ github.workspace }}/Frontend/ root@vsgate-ssh.dei.isep.ipp.pt:/etc/sarm/frontend/
+    #     # Restart services if needed
+    #     sshpass -p 'grupo22425' ssh -p 10608 root@vsgate-ssh.dei.isep.ipp.pt 'systemctl restart sarm-frontend'

@@ -1,0 +1,21 @@
+@startuml 
+
+
+actor actor
+participant "UI" as ui
+participant "Backoffice" as backoffice
+
+activate actor
+actor -> ui: list/search request
+
+activate ui
+ui->backoffice: request
+activate backoffice
+backoffice-->ui: list
+deactivate
+
+ui --> actor: list
+deactivate
+
+
+@enduml

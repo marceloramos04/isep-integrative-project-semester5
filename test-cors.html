@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test CORS</title>
+</head>
+<body>
+    <h1>Test CORS</h1>
+    <button id="testButton">Test CORS</button>
+
+    <script>
+        document.getElementById('testButton').addEventListener('click', function() {
+            fetch('http://localhost:3000/medical-records/202412000001')
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

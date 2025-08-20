@@ -1,0 +1,267 @@
+<div style="padding: 1%;">
+
+  @if (patientDetails) {
+    <div class="row">
+    
+      <div class="col">
+        <p id="firstName"><strong>First Name:</strong> {{ patientDetails.firstName }}</p>
+        <p id="lastName"><strong>Last Name:</strong> {{ patientDetails.lastName }}</p>
+        <p><strong>Gender:</strong> {{ patientDetails.gender }}</p>
+        <p>
+          <strong>Date of Birth:</strong> {{ patientDetails.dateOfBirth | date }}
+        </p>
+      </div>
+    
+      <div class="col">
+        <p id="email"><strong>Email:</strong> {{ patientDetails.email }}</p>
+        <p id="phone"><strong>Phone Number:</strong> {{ patientDetails.phoneNumber }}</p>
+        <p>
+          <strong>Emergency Contact:</strong> {{ patientDetails.emergencyContact }}
+        </p>
+      </div>
+    
+    </div>
+    } @else {
+    <p>Loading patient details...</p>
+    }
+    
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="Allergies">
+    
+        <br>
+    
+        @if (updatingAllergies) {
+        <button mat-button (click)="updatingAllergies = false">Cancel</button>
+        <button mat-button (click)="updateAllergies()">Submit</button>
+        <p></p>
+        <app-update-allergies></app-update-allergies>
+    
+        } @else {
+        <button mat-button *ngIf="patientId" (click)="updatingAllergies = true">Update allergies</button>
+        <p></p>
+        <mat-form-field style="display: flex;">
+          <mat-label>Filter</mat-label>
+          <input id="allergiesFilterInput" matInput (keyup)="filterAllergies($event)" type="text">
+        </mat-form-field>
+    
+        <table mat-table [dataSource]="allergiesDataSource" matSort #allergySort="matSort">
+    
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let allergy">{{allergy?.name}}</td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let allergy">{{allergy?.description}}</td>
+          </ng-container>
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+            <td mat-cell *matCellDef="let allergy">{{allergy?.code}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="allergiesColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: allergiesColumns;"></tr>
+    
+          <tr *matNoDataRow>
+            <p>No allergies (...)</p>
+          </tr>
+        </table>
+    
+        <mat-paginator #allergyPaginator [pageSizeOptions]="[10,25,50]"></mat-paginator>
+        }
+    
+      </mat-tab>
+    
+      <mat-tab label="Medical Conditions">
+    
+        <br>
+    
+        @if (updatingMConditions) {
+        <button mat-button (click)="updatingMConditions = false">Cancel</button>
+        <button mat-button (click)="submitUpdateConditions()">Submit</button>
+        <p></p>
+    
+        <app-medical-condition-list [selectable]="true" (selected)="updateConditions($event)"></app-medical-condition-list>
+    
+        } @else {
+        <button mat-button *ngIf="patientId" (click)="updatingMConditions = true">Update medical conditions</button>
+    
+        <p></p>
+    
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="filterMConditions($event)" type="text">
+        </mat-form-field>
+    
+        <table mat-table [dataSource]="mconditionsDataSource" matSort #mconditionSort="matSort">
+    
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let mcondition">{{mcondition?.name}}</td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let mcondition">{{mcondition?.description}}</td>
+          </ng-container>
+          <ng-container matColumnDef="diagnosisDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Diagnosis Date</th>
+            <td mat-cell *matCellDef="let mcondition">{{mcondition?.diagnosisDate | date:'dd-MM-yyyy'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+            <td mat-cell *matCellDef="let mcondition">{{mcondition?.code}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="mconditionsColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: mconditionsColumns;"></tr>
+    
+          <tr *matNoDataRow>
+            <p>No medical conditions (...)</p>
+          </tr>
+        </table>
+    
+        <mat-paginator #mconditionPaginator [pageSizeOptions]="[10,25,50]"></mat-paginator>
+        }
+    
+      </mat-tab>
+    
+      <mat-tab label="Medical History">
+        <table mat-table [dataSource]="mhistoryDataSource" matSort #mhistorySort="matSort">
+    
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+            <td mat-cell *matCellDef="let mhistory">{{mhistory?.date | date: 'dd-MM-yyyy'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let mhistory">{{mhistory?.description}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="mhistoryColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: mhistoryColumns;"></tr>
+    
+          <tr *matNoDataRow>
+            <p>No medical history (...)</p>
+          </tr>
+        </table>
+    
+        <mat-paginator #mhistoryPaginator [pageSizeOptions]="[10,25,50]"></mat-paginator>
+      </mat-tab>
+    
+      <mat-tab label="Family Medical History">
+        <table mat-table [dataSource]="fmhistoryDataSource" matSort #fmhistorySort="matSort">
+    
+          <ng-container matColumnDef="relative">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Relative</th>
+            <td mat-cell *matCellDef="let fmhistory">{{fmhistory?.relative}}</td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let fmhistory">{{fmhistory?.description}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="fmhistoryColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: fmhistoryColumns;"></tr>
+    
+          <tr *matNoDataRow>
+            <p>No family history (...)</p>
+          </tr>
+        </table>
+    
+        <mat-paginator #fmhistoryPaginator [pageSizeOptions]="[10,25,50]"></mat-paginator>
+      </mat-tab>
+    
+      <mat-tab label="Current Medications">
+        <table mat-table [dataSource]="medicationsDataSource" matSort #medicationsSort="matSort">
+    
+          <ng-container matColumnDef="medication">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Medication</th>
+            <td mat-cell *matCellDef="let medication">{{medication?.medication}}</td>
+          </ng-container>
+          <ng-container matColumnDef="dose">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Dose</th>
+            <td mat-cell *matCellDef="let medication">{{medication?.dose}}</td>
+          </ng-container>
+          <ng-container matColumnDef="frequency">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Frequency</th>
+            <td mat-cell *matCellDef="let medication">{{medication?.frequency}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="medicationsColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: medicationsColumns;"></tr>
+    
+          <tr *matNoDataRow>
+            <p>No medications (...)</p>
+          </tr>
+        </table>
+    
+        <mat-paginator #medicationsPaginator [pageSizeOptions]="[10,25,50]"></mat-paginator>
+      </mat-tab>
+    
+      <mat-tab label="Vaccines">
+        <table mat-table [dataSource]="vaccinesDataSource" matSort #vaccinesSort="matSort">
+    
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let vaccine">{{vaccine?.description}}</td>
+          </ng-container>
+          <ng-container matColumnDef="lastDose">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Dose</th>
+            <td mat-cell *matCellDef="let vaccine">{{vaccine?.lastDose | date: 'dd-MM-yyyy'}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="vaccinesColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: vaccinesColumns;"></tr>
+    
+          <tr *matNoDataRow>
+            <p>No vaccines (...)</p>
+          </tr>
+        </table>
+    
+        <mat-paginator #vaccinesPaginator [pageSizeOptions]="[10,25,50]"></mat-paginator>
+      </mat-tab>
+    
+      <mat-tab label="LifeStyle">
+        <table mat-table [dataSource]="lifestyleDataSource" matSort #lifestyleSort="matSort">
+    
+          <ng-container matColumnDef="habit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Habit</th>
+            <td mat-cell *matCellDef="let lifestyle">{{lifestyle?.habit}}</td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let lifestyle">{{lifestyle?.description}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="lifestyleColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: lifestyleColumns;"></tr>
+    
+          <tr *matNoDataRow>
+            <p>No lifestyle details (...)</p>
+          </tr>
+        </table>
+    
+        <mat-paginator #lifestylePaginator [pageSizeOptions]="[10,25,50]"></mat-paginator>
+      </mat-tab>
+    
+      <mat-tab label="Recent Visit Notes">
+        <table mat-table [dataSource]="notesDataSource">
+    
+          <ng-container matColumnDef="notes">
+            <th mat-header-cell *matHeaderCellDef>{{medicalRecord?.recentVisitNotes?.date | date}}</th>
+            <td mat-cell *matCellDef="let note">{{note}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="notesColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: notesColumns;"></tr>
+    
+          <tr *matNoDataRow>
+            <p>No notes (...)</p>
+          </tr>
+        </table>
+    
+        <mat-paginator #notesPaginator [pageSizeOptions]="[10,25,50]"></mat-paginator>
+      </mat-tab>
+    </mat-tab-group>
+
+</div>

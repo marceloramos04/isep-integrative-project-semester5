@@ -1,0 +1,51 @@
+<form [formGroup]="allergyForm" (ngSubmit)="onSubmit()" class="allergy-form">
+    <mat-card class="details-card">
+        <mat-card-title>Add Allergy</mat-card-title>
+        <mat-card-content>
+
+            <!-- Allergy Code -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Code</mat-label>
+                <input matInput formControlName="code" placeholder="Enter allergy code" />
+                <mat-error
+                    *ngIf="allergyForm.get('code')?.hasError('required') && allergyForm.get('code')?.touched">
+                    Allergy Code is required.
+                </mat-error>
+                <mat-error
+                    *ngIf="allergyForm.get('code')?.hasError('pattern') && allergyForm.get('code')?.touched">
+                    Allergy Code must be exactly 9 digits.
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Designation -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Enter designation" />
+                <mat-error
+                    *ngIf="allergyForm.get('name')?.hasError('required') && allergyForm.get('name')?.touched">
+                    Name is required.
+                </mat-error>
+                <mat-error
+                    *ngIf="allergyForm.get('name')?.hasError('pattern') && allergyForm.get('name')?.touched">
+                    Name can only contain letters and spaces.
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Description -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="Enter description"></textarea>
+                <mat-error
+                    *ngIf="allergyForm.get('description')?.hasError('maxlength') && allergyForm.get('description')?.touched">
+                    Description cannot exceed 200 characters.
+                </mat-error>
+            </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="allergyForm.invalid">
+                Submit
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
