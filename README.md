@@ -20,8 +20,9 @@ This project was required by the LAPR5 curricular unit/subject (Laboratory/Proje
 - Node.js + MongoDB (Complementary Backend API)
 - Angular (Frontend SPA)
 - REST APIs
-- Git (GitHub) + CI/CD (GitHub Actions)
-- Authentication (Auth0)
+- GitHub for version control and project management
+- GitHub Actions for CI/CD
+- Auth0 for authentication
 - Three.js (3D visualization module)
 - Bash scripts for distributed deployment across multiple Linux servers
 
