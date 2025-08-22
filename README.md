@@ -14,17 +14,24 @@ This project was required by the LAPR5 curricular unit/subject (Laboratory/Proje
 - **Complementary Backend API**: management of patients’ medical history, allergies, and medical conditions.
 - **Frontend**: Single-Page Application (SPA) built with Angular, including a 3D visualization module to allow hospital staff to monitor the availability of surgery rooms in real time.
 
-## Technologies/Tools Used
+## Technologies & Tools Used  
 
-- ASP.NET Core + Entity Framework (Main Backend API)
-- Node.js + MongoDB (Complementary Backend API)
-- Angular (Frontend SPA)
-- REST APIs
-- GitHub for version control and project management
-- GitHub Actions for CI/CD
-- Auth0 for authentication
-- Three.js (3D visualization module)
-- Bash scripts for distributed deployment across multiple Linux servers
+### 🖥️ Backend  
+- **ASP.NET Core + Entity Framework** — Main API  
+- **Node.js + MongoDB** — Complementary API  
+- **REST APIs** — Communication layer  
+
+### 🎨 Frontend  
+- **Angular** — Single Page Application (SPA)  
+- **Three.js** — 3D visualization module  
+
+### 🔐 Security & Authentication  
+- **Auth0** — Authentication & Authorization  
+
+### 🚀 DevOps & Deployment  
+- **GitHub** — Version control & project management  
+- **GitHub Actions** — CI/CD pipelines  
+- **Bash scripts** — Distributed deployment on Linux servers  
 
 ## Colaborators
 
